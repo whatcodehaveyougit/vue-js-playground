@@ -6,10 +6,31 @@
   <title>Document</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+<style>
+  .box {
+    width: 400px;
+    border: 1px solid black;
+    padding: 100px 0px;
+  }
+</style>
 <body>
 
   <div id="app">
-    <p>{{ title }}</p>
+    <div v-if="showInfo">
+      <p>{{ title }}</p>
+      <p>age: {{ age }}</p>
+      <button v-on:click="age++">Increase Age</button>
+      <button @click="changeTitle('Sigurd ')">Change Title</button>
+    </div>
+    <div v-else>
+      Nothing to show here
+    </div>
+    <button @click="showOrHideInfo">Toggle Info</button>
+    <br>
+    <div class="box" @mouseover="onMouseOver">box</div>
+    <div class="box" @mouseleave="handleEvent">box</div>
+    <div class="box" @doubleclick="handleEvent">box</div>
+
   </div>
 
   <script src="script.js" ></script>
