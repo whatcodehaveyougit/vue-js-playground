@@ -4,7 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
   <!-- Teleport not working, can't see it getting loaded in the div -->
-    <Teleport to="body" v-if="showModal">
+    <Teleport to="#modals" v-if="showModal">
       <!-- Putting the colon infront of the props name binds it so the actual props go in the data return script -->
       <Modal :header="header" theme="sale" @closeDaModal="toggleModal">
         <h4>Net Ninja Modal</h4>
