@@ -1,8 +1,13 @@
 <template>
-  <div class="backdrop" @click="closeModal">
+<!-- The .self means that only if we click on that actual elemtn it fires.  Rather thdan children of it -->
+  <div class="backdrop" @click.self="closeModal">
     <div id="modal" :class="{ showsale: theme === 'sale'}">
       <h4>{{ header }}</h4>
-      <p>Hello I am a modal</p>
+      <slot>Default content will show here if nothing is passed in by default</slot>
+      <div actions="test">
+        <slot name="links">
+        </slot>
+      </div>
     </div>
   </div>
 </template>
