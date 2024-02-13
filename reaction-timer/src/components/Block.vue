@@ -1,5 +1,5 @@
 <template>
-<div id="block" @click="stopClick"></div>
+<div id="block" @click="stopClick">Click Me</div>
 </template>
 
 <script>

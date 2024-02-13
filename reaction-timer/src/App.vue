@@ -8,15 +8,14 @@
     <button @click="startGame">Play</button>
   </div>
   <div v-if="timeTakenToClick">
-    User Played Game
-    {{ timeTakenToClick }} milliseconds
-    <h5>{{ userMessage }}</h5>
+    <Results :timeTakenToClick="timeTakenToClick" :userMessage="userMessage" />
   </div>
 </div>
 </template>
 
 <script>
 import Block from './components/Block.vue'
+import Results from './components/Results.vue'
 
 function randomIntFromInterval(min, max) { // min and max included
   const number = Math.floor(Math.random() * (max - min + 1) + min)
@@ -34,7 +33,7 @@ function generateMessage(timeTaken){
 export default {
   name: 'App',
   components: {
-    Block
+    Block, Results
   },
    data() {
     return {
@@ -47,6 +46,9 @@ export default {
   methods:{
     startGame(){
       const rndInt = randomIntFromInterval(1, 3)
+       this.startTimeClick = 0;
+      this.timeTakenToClick = 0;
+      this.userMessage = ''
       setTimeout( () => {
         this.showBlock = true;
         this.startTimeClick = Date.now()
@@ -56,7 +58,9 @@ export default {
       const res = Date.now() - this.startTimeClick
       this.timeTakenToClick = res;
       this.userMessage = generateMessage(res)
+      this.showBlock = false;
     },
+
   }
 }
 </script>
