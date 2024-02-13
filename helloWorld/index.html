@@ -10,13 +10,14 @@
   .box {
     width: 400px;
     border: 1px solid black;
-    padding: 100px 0px;
+    padding: 5px 0px;
   }
 </style>
 <body>
 
   <div id="app">
     <div v-if="showInfo">
+      <a v-bind:href="url">Best Website Ever</a>
       <p>{{ title }}</p>
       <p>age: {{ age }}</p>
       <button v-on:click="age++">Increase Age</button>
@@ -30,6 +31,11 @@
     <div class="box" @mouseover="onMouseOver">box</div>
     <div class="box" @mouseleave="handleEvent">box</div>
     <div class="box" @doubleclick="handleEvent">box</div>
+    <ul v-for="book in books">
+      <li>{{ book.title }}</li>
+    </ul>
+
+    </div>
 
   </div>
 

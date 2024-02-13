@@ -3,9 +3,15 @@ console.log('helo')
 const app = Vue.createApp({
   data() {
     return {
+      url: "https://7hillsceilidh.com",
       title: 'Superman',
       age: 22,
-      showInfo: true
+      showInfo: true,
+      books: [
+        {title: 'Phil stone'},
+        {title: 'Chamber Secrets'},
+        { title: 'Last one' }
+      ]
     }
   },
   methods: {
