@@ -1,5 +1,5 @@
 <template>
-  <div id="block" @click="stopGame">Click Me</div>
+  <div id="block" @click="stopGame">Click Me to Stop Game</div>
 </template>
 
 <script>
