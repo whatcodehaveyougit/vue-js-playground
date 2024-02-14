@@ -35,7 +35,7 @@ export default {
   },
    data() {
     return {
-      showBlock: true,
+      showBlock: false,
       startTimeClick: 0,
       userMessage: '',
       isPlaying: false,
