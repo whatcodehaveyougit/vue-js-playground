@@ -2,12 +2,10 @@
 <div>
   <h3>Ninja Reaction Timer</h3>
   <div v-if="showBlock">
-    <Block  @stopClick="stopTimer" />
+    <Block  @stopGame="stopGame" />
   </div>
-  <div v-if="!showBlock">
-    <button @click="startGame">Play</button>
-  </div>
-  <div v-if="timeTakenToClick">
+  <button @click="startGame" :disabled="isPlaying">Play</button>
+  <div v-if="timeTakenToClick && !isPlaying">
     <Results :timeTakenToClick="timeTakenToClick" :userMessage="userMessage" />
   </div>
 </div>
@@ -39,26 +37,25 @@ export default {
     return {
       showBlock: false,
       startTimeClick: 0,
-      timeTakenToClick: 0,
-      userMessage: ''
+      userMessage: '',
+      isPlaying: false,
+      timeTakenToClick: 0
     }
   },
   methods:{
     startGame(){
       const rndInt = randomIntFromInterval(1, 3)
-       this.startTimeClick = 0;
-      this.timeTakenToClick = 0;
-      this.userMessage = ''
+      this.userMessage = '';
+      this.isPlaying = true;
       setTimeout( () => {
         this.showBlock = true;
-        this.startTimeClick = Date.now()
       }, rndInt)
     },
-    stopTimer(){
-      const res = Date.now() - this.startTimeClick
-      this.timeTakenToClick = res;
-      this.userMessage = generateMessage(res)
+    stopGame(reactionTime){
+      this.timeTakenToClick = reactionTime;
+      this.userMessage = generateMessage(reactionTime)
       this.showBlock = false;
+      this.isPlaying = false
     },
 
   }

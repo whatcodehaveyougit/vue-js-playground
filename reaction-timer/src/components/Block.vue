@@ -1,15 +1,25 @@
 <template>
-<div id="block" @click="stopClick">Click Me</div>
+  <div id="block" @click="stopGame">Click Me</div>
 </template>
 
 <script>
 export default {
   name: 'Block',
+  data(){
+    return {
+      startTimeClick: 0,
+    }
+  },
   methods: {
-    stopClick() {
-        this.$emit('stopClick')
-      }
+    stopGame() {
+        const clickDelay = Date.now() - this.startTimeClick
+        this.$emit('stopGame', clickDelay)
+      },
+  },
+  mounted(){
+    this.startTimeClick = Date.now()
   }
+
 }
 
 </script>
