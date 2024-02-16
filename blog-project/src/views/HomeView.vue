@@ -11,30 +11,13 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import checkFetch from '../composeables/functions'
+import getPosts from '../composeables/getPosts'
 
 export default {
   name: 'HomeView',
   setup(){
-    const posts = ref([]);
-    const error = ref(null);
-
-    // console.log(error)
-    const load = () => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(checkFetch)
-        .then(res => {
-          return res.json();
-        })
-        .then(data => posts.value = data)
-        .catch(err => {
-          error.value = err.message
-        })
-    }
-
+    const { load, posts, error } = getPosts()
     load()
-
     return { posts, error }
   }
 }
