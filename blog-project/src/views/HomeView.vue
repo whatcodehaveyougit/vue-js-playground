@@ -3,7 +3,7 @@
     <h3>Blog Project</h3>
     <div v-if="posts.length">
       <div v-for="post in posts" :key="post.id">
-        <p>{{ post.title }}</p>
+        <router-link :to="{ name: 'post', params: {id: post.id}}">{{ post.title }}</router-link>
       </div>
     </div>
     <div v-if="error">{{ error }}</div>

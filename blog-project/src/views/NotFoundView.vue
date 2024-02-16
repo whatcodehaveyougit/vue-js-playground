@@ -1,5 +1,5 @@
 <template>
-  <div>I am a post</div>
+  <h2>Not Found</h2>
 </template>
 
 <script>
