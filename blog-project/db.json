@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "title": "CSS Tricks",
+      "body": "lorem hello em hello lorem hello lorem hello lorem hello lorem hello lorem hello lorem ",
+      "tags": ["CSS", "Scope"]
+    },
+    {
+      "title": "JS Speed",
+      "body": "lorem hello em hello lorem hello lorem hello lorem hello lorem hello lorem hello lorem ",
+      "tags": ["JS"]
+    },
+    {
+      "title": "Example Post",
+      "body": "lorem hello lorem hello lorem hello lorem hello lorem hello lorem hello lorem hello lorem hello",
+      "tags": []
+    }
+  ]
+}
