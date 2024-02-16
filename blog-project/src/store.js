@@ -4,9 +4,19 @@ import { createStore } from 'vuex'
 const store = createStore({
   state () {
     return {
-      posts: [{title: "helo vuex world", id: 1}]
+      posts: []
     }
   },
+  getters: {
+    getPosts (state) {
+      return state.posts
+    }
+  },
+  mutations: {
+    setPosts(state, posts){
+      state.posts.push(posts)
+    }
+  }
 })
 
 export default store;
