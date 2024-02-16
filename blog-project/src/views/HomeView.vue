@@ -7,6 +7,7 @@
       </div>
     </div>
     <div v-if="error">{{ error }}</div>
+    {{ storePosts }}
   </div>
 </template>
 
@@ -19,6 +20,11 @@ export default {
     const { load, posts, error } = getPosts()
     load()
     return { posts, error }
+  },
+  computed: {
+    storePosts () {
+      return this.load()
+    }
   }
 }
 </script>
