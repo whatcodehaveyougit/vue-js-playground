@@ -1,21 +1,16 @@
 import checkFetch from './functions'
 import { ref } from 'vue'
 
-const getPosts = () => {
+const getPosts = async () => {
 
-  const posts = ref([]);
-  const error = ref(null);
+  const posts = []
+  let error = null
 
-  const load = () => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(checkFetch)
-    .then(res => {
-      return res.json();
-    })
-    .then(data => posts.value = data)
-    .catch(err => {
-      error.value = err.message
-    })
+  const load = async () => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const checkedFetch =  await checkFetch(res);
+    const parsedFetch = await checkedFetch.json()
+    posts = parsedFetch
   }
   return { posts, error, load }
 }

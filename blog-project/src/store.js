@@ -14,7 +14,8 @@ const store = createStore({
   },
   mutations: {
     setPosts(state, posts){
-      state.posts.push(posts)
+      console.log(posts)
+      state.posts = posts
     }
   }
 })
